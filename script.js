@@ -8,6 +8,10 @@ function init() {
   //grab last search results from local storage and put on left side of page
 }
 
+
+
+let requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=Chicago&appid=6c722ab2da2f45aa2671601003f6488c'
+
 function search() {
   fetch(requestUrl)
     .then(function (response) {

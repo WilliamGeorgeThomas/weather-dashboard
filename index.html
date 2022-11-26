@@ -1,40 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+    </style>
 </head>
-<body>
 
-<!-- dashboard header -->
+<body class="min-100-vh">
 
-
-
-
-<!-- city search -->
-<button id="searchBtn">SEARCH</button>
-
+    <!-- dashboard header -->
+    <header style="font-family: 'Monoton', cursive;"
+        class="text-[3rem] bg-gradient-to-r from-cyan-500 to-blue-500 p-5 text-center border-b-4 border-black">
+        <h1>WEATHER DASHBOARD</h1>
+    </header>
 
 
+    <main class="flex p-3">
 
-<!-- last 10 searches  -->
+        <div class="w-full md:w-3/12">
+
+            <!-- city search  -->
+
+            <div class="border-4 border-black rounded-lg p-5 m-2 flex flex-col ">
+                <h2 class="text-center text-lg">SEARCH BY CITY</h2>
+                <form>
+                    <input type="text" placeholder="type a city"
+                        class="w-full border-4 border-black rounded-lg text-center my-2">
+                    <button id="searchBtn" class="w-full border-4 border-black rounded-lg">SEARCH</button>
+                </form>
+                <hr>
+
+                <!-- last 10 searches  -->
+
+                <div class="my-8">
+                    <button class="w-full border-4 border-black rounded-lg my-2">Chicago</button>
+                    <button class="w-full border-4 border-black rounded-lg my-2">Detroit</button>
+                    <button class="w-full border-4 border-black rounded-lg my-2">Cleveland</button>
+                    <button class="w-full border-4 border-black rounded-lg my-2">Toronto</button>
+                    <button class="w-full border-4 border-black rounded-lg my-2">NYC</button>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <!-- current city -->
+        <div class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-9/12">
+
+            <div class="border-4 border-black rounded-lg p-5 m-2 w-full"></div>
+            <h3>5 DAY FORECAST</h3>
+            <div class="flex flex-row">
+                <div class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
+                <div class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
+
+                <div class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
+
+                <div class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
+
+                <div class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
+            </div>
 
 
 
 
-<!-- current city -->
+
+        </div>
 
 
 
 
-<!-- 5 day forcast -->
+
+        <!-- 5 day forcast -->
+        <div></div>
 
 
 
+    </main>
 
-    
 </body>
 <script src="./script.js"></script>
+
 </html>
