@@ -30,7 +30,7 @@
             <div class="border-4 border-black rounded-lg p-5 m-2 flex flex-col ">
                 <h2 class="text-center text-lg">SEARCH BY CITY</h2>
                 <form>
-                    <input type="text" placeholder="type a city"
+                    <input id="inputEl" type="text" placeholder="type a city"
                         class="w-full border-4 border-black rounded-lg text-center my-2">
                     <button id="searchBtn" class="w-full border-4 border-black rounded-lg">SEARCH</button>
                 </form>
@@ -54,17 +54,28 @@
         <!-- current city -->
         <div class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-9/12">
 
-            <div class="border-4 border-black rounded-lg p-5 m-2 w-full"></div>
+            <div class="border-4 border-black rounded-lg p-5 m-2 w-full">
+                <div id="currentCityEl"></div>
+                <img id="currentIconEl">
+                <div id="currentTempEl"></div>
+                <div id="currentWindEl"></div>
+                <div id="currentHumidityEl"></div>
+
+            </div>
+
+
             <h3>5 DAY FORECAST</h3>
             <div class="flex flex-row">
-                <div class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
-                <div class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
 
-                <div class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
+                <div id="day1El" class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
 
-                <div class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
+                <div id="day2El" class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
 
-                <div class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
+                <div id="day3El" class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
+
+                <div id="day4El" class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
+
+                <div id="day5El" class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
             </div>
 
 
