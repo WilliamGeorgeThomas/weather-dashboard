@@ -26,15 +26,13 @@ let searchHistoryButtons = document.querySelector("#searchHistoryButtons");
 function init() {
   //grab last search results from local storage and put on left side of page
 
-
-//rechange name lenghttoruntil  
-
   if (searchedCities.length > 0) {
     let maximumLenght = searchedCities.length >= 5 ? 5 : searchedCities.length;
     let count = 0;
     for (let i = searchedCities.length - 1; i >= 0; i--) {
       let cityHistoryButtons = document.createElement("div");
       cityHistoryButtons.innerHTML += `<button>${searchedCities[i]}</button>`;
+      cityHistoryButtons.classList.add("w-full", "border-4", "border-black", "rounded-lg", "my-2", "text-center");
       searchHistoryButtons.append(cityHistoryButtons);
       count++;
       if (count === maximumLenght) {
@@ -49,16 +47,20 @@ function init() {
 let formSubmitHandler = function (event) {
   event.preventDefault();
   search();
-  // let city = inputEl.value;
-
-  // if (city) {
-  //   search();
-  //   // repoContainerEl.textContent = '';
-  //   // nameInputEl.value = '';
-  // } else {
-  //   alert('Please enter a GitHub username');
-  // }
 };
+
+
+let buttonClickHandler = function (event) {
+let cityChoice = event.target.value;
+if (cityChoice) {
+  search();
+//how do i get the serach to specify the input without using the input box???
+}
+
+
+}
+
+
 
 function search() {
   let city = inputEl.value;
@@ -98,32 +100,34 @@ function search() {
 
       // let iconCode = data.list[0].weather[0].icon;
       // let iconURL = `http://openweathermap.org/img/wn/${iconCode}@2x.png`
+      let date = data.list[0].dt_txt.split(" ")[0];
 
-      currentCityEl.innerHTML = data.city.name += data.list[0].dt_txt;
-      currentTempEl.innerHTML = data.list[0].main.temp += "° F";
-      currentWindEl.innerHTML = data.list[0].wind.speed += " MPH";
-      currentHumidityEl.innerHTML = data.list[0].main.humidity += "%";
+      currentCityEl.innerHTML += `${data.city.name} (${date})`;
+      currentTempEl.innerHTML += `${data.list[0].main.temp}° F`;
+      currentWindEl.innerHTML += `${data.list[0].wind.speed} MPH`;
+      currentHumidityEl.innerHTML += `${data.list[0].main.humidity}%`;
 
       //5 day forecast
       data.list.forEach((day) => {
         let midnight = day.dt_txt.split(" ")[1];
+        let date = day.dt_txt.split(" ")[0];
         if (midnight === "00:00:00") {
           console.log(day);
           let dayCardEl = document.createElement("div");
-          // let dateEl = document.createElement("h3");
-          // let tempEl = document.createElement("p");
-          // let windEl = document.createElement("p");
-          // let humidityEl = document.createElement("p");
-          // dayCard.innerHTML += `<div>${day.dt_txt}</ div>`;
-          // dayCardEl.innerHTML = "";
-          dayCardEl.innerHTML += `<h1>${day.dt_txt}</h1>`;
+          let dateEl = document.createElement("h3");
+          let tempEl = document.createElement("p");
+          let windEl = document.createElement("p");
+          let humidityEl = document.createElement("p");
+          dayCardEl.innerHTML += `<h1>${date}</h1>`;
           dayCardEl.innerHTML += `<div>Temp: ${day.main.temp}°</div>`;
           dayCardEl.innerHTML += `<div>Wind: ${day.wind.speed} MPH</div>`;
-          dayCardEl.innerHTML += `<div>Humidity ${day.main.humidity} %</div>`;
+          dayCardEl.innerHTML += `<div>Humidity ${day.main.humidity}%</div>`;
+          dayCardEl.classList.add("border-4", "border-black", "rounded-lg", "p-5", "m-2", "w-full", "md:w-3/12");
           forecastEl.append(dayCardEl);
-          // forecastEl.append(windEl);
-          // forecastEl.append(dateEl);
-          // forecastEl.append(humidityEl);
+          // dayCardEl.append(dateEl);
+          // dayCardEl.append(tempEl);
+          // dayCardEl.append(windEl);
+          // dayCardEl.append(humidityEl);
         }
       });
 
@@ -142,5 +146,8 @@ init();
 
 //search button event listener
 searchBtn.addEventListener("click", formSubmitHandler);
+
+//past search button event listener
+searchHistoryButtons.addEventListener('click', buttonClickHandler);
 
 //click on past results
