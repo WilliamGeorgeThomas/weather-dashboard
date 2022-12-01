@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Dashboard</title>
+    <title>WEATHER DASHBOARD</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
     </style>
 </head>
 
-<body class="min-100-vh">
+<body class="min-100-vh bg-neutral-200">
 
     <!-- dashboard header -->
+
     <header style="font-family: 'Monoton', cursive;"
         class="text-[3rem] bg-gradient-to-r from-cyan-500 to-blue-500 p-5 text-center border-b-4 border-black">
         <h1>WEATHER DASHBOARD</h1>
@@ -23,79 +24,58 @@
 
     <main class="flex p-3">
 
-        <div class="w-full md:w-3/12">
+        <div class="w-full md:w-1/5 flex">
 
             <!-- city search  -->
 
-            <div class="border-4 border-black rounded-lg p-5 m-2 flex flex-col ">
-                <h2 class="text-center text-lg">SEARCH BY CITY</h2>
+            <div class="border-4 border-black rounded-lg p-5 m-2 flex flex-col bg-white">
+                <h2 class="text-center text-lg font-bold">SEARCH BY CITY</h2>
                 <form>
                     <input id="inputEl" type="text" placeholder="type a city"
                         class="w-full border-4 border-black rounded-lg text-center my-2">
-                    <button id="searchBtn" class="w-full border-4 border-black rounded-lg">SEARCH</button>
+                    <button id="searchBtn"
+                        class="w-full border-4 border-black rounded-lg hover:bg-gray-300 font-bold">SEARCH</button>
                 </form>
                 <hr>
 
-                <!-- last 10 searches  -->
+                <!-- last 5 search buttons  -->
 
-                <div id="searchHistoryButtons" class="my-8">
-                    <!-- <button id="city1" class="w-full border-4 border-black rounded-lg my-2">Toronto</button>
-                    <button id="city2" class="w-full border-4 border-black rounded-lg my-2">Montreal</button>
-                    <button id="city3" class="w-full border-4 border-black rounded-lg my-2">Calgary</button>
-                    <button id="city4" class="w-full border-4 border-black rounded-lg my-2">Vancouver</button>
-                    <button id="city5" class="w-full border-4 border-black rounded-lg my-2">Edmonton</button> -->
-                </div>
+                <div id="searchHistoryButtons" class="my-8"></div>
 
             </div>
 
 
         </div>
 
-        <!-- current city -->
-        <div class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-9/12">
+        <!-- current city weather info -->
 
-            <div class="border-4 border-black rounded-lg p-5 m-2 w-full">
+        <div id="cityCard"
+            class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-4/5 flex flex-col bg-white hidden">
+
+            <!-- current weather -->
+
+            <div
+                class="border-4 border-black rounded-lg p-5 m-2 w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white">
                 <div id="currentCityEl" class="text-xl font-bold"></div>
-                <img id="currentIconEl" src="" alt="weather icon">
                 <div id="currentTempEl"></div>
                 <div id="currentWindEl"></div>
                 <div id="currentHumidityEl"></div>
 
             </div>
 
+            <!-- 5 day forecast -->
 
-            <h3>5 DAY FORECAST</h3>
-            <div id="forecastEl" class="flex flex-row">
-
-                <!-- <div id="day1El" class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
-
-                <div id="day2El" class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
-
-                <div id="day3El" class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
-
-                <div id="day4El" class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div>
-
-                <div id="day5El" class="border-4 border-black rounded-lg p-5 m-2 w-full md:w-3/12"></div> -->
-            </div>
-
-
-
-
+            <h3 id="forecastTitle" class="font-bold text-center"></h3>
+            <div id="forecastEl" class="flex flex-row flex-wrap justify-evenly"></div>
 
         </div>
-
-
-
-
-
-        <!-- 5 day forcast -->
-        <div></div>
-
-
 
     </main>
 
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"></script>
+
 <script src="./script.js"></script>
 
 </html>
