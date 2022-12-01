@@ -55,9 +55,8 @@ function search(cityChoice) {
   let requestUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=6c722ab2da2f45aa2671601003f6488c&units=imperial`;
   let cityHistory = inputEl.value.trim();
 
-  //clears search box after each time
+  //clears search box and weather info with each new search
   inputEl.value = "";
-
   forecastEl.innerHTML = "";
   currentCityEl.innerHTML = "";
 
@@ -72,19 +71,18 @@ function search(cityChoice) {
       return response.json();
     })
     .then(function (data) {
-      //city name, temp, wind, humidity
+      //current weather info
 
       let date = dayjs(data.list[0].dt_txt).format("MMMM DD, YYYY");
-
-      currentCityEl.innerHTML = `${data.city.name} (${date})`;
-      currentTempEl.innerHTML = `Temp: ${data.list[0].main.temp}° F`;
-      currentWindEl.innerHTML = `Wind: ${data.list[0].wind.speed} MPH`;
-      currentHumidityEl.innerHTML = `Humidity ${data.list[0].main.humidity}%`;
-
       let iconURL = `http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`;
       let weatherIcon = document.createElement("img");
       weatherIcon.setAttribute("src", iconURL);
+
+      currentCityEl.innerHTML = `${data.city.name} (${date})`;
       currentCityEl.append(weatherIcon);
+      currentTempEl.innerHTML = `Temp: ${data.list[0].main.temp}° F`;
+      currentWindEl.innerHTML = `Wind: ${data.list[0].wind.speed} MPH`;
+      currentHumidityEl.innerHTML = `Humidity ${data.list[0].main.humidity}%`;
 
       //5 day forecast
 
@@ -97,7 +95,7 @@ function search(cityChoice) {
         if (midnight === "00:00:00") {
           let dayCardEl = document.createElement("div");
           dayCardEl.innerHTML += `<h1 class="font-bold">${date}</h1>`;
-          dayCardEl.innerHTML += `<img src="${iconURL}">`;
+          dayCardEl.innerHTML += `<img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png">`;
           dayCardEl.innerHTML += `<div>Temp: ${day.main.temp}°</div>`;
           dayCardEl.innerHTML += `<div>Wind: ${day.wind.speed} MPH</div>`;
           dayCardEl.innerHTML += `<div>Humidity ${day.main.humidity}%</div>`;
