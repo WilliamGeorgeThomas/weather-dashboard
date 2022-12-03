@@ -14,7 +14,7 @@ This was the most challenging project yet.  It required signficant use of JavaSc
 
 # Screenshot
 
-![screenshot of weather dashboard](./_C__Users_Will_code_weather-dashboard_index.html.png)
+![screenshot of weather dashboard](./assets/images/_C__Users_Will_code_weather-dashboard_index.html.png)
 
 # Credits
 
