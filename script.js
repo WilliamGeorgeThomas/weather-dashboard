@@ -7,7 +7,6 @@ let currentTempEl = document.querySelector("#currentTempEl");
 let currentWindEl = document.querySelector("#currentWindEl");
 let currentHumidityEl = document.querySelector("#currentHumidityEl");
 let forecastEl = document.querySelector("#forecastEl");
-let currentIconEl = document.querySelector("#currentIconEl");
 let searchedCities = JSON.parse(localStorage.getItem("cities")) || [];
 let searchHistoryButtons = document.querySelector("#searchHistoryButtons");
 let forecastTitle = document.querySelector("#forecastTitle");
@@ -29,11 +28,9 @@ function init() {
       searchHistoryButtons.append(cityHistoryButtons);
       count++;
       if (count === maximumLenght) {
-        return;
+        break;
       }
     }
-  } else {
-    return;
   }
 }
 
@@ -43,8 +40,8 @@ let formSubmitHandler = function (event) {
 };
 
 let buttonClickHandler = function (event) {
-  let parentDiv = event.target;
-  let cityChoice = parentDiv.getAttribute("data-city");
+  let button = event.target;
+  let cityChoice = button.getAttribute("data-city");
   if (cityChoice) {
     search(cityChoice);
   }
@@ -60,6 +57,7 @@ function search(cityChoice) {
   forecastEl.innerHTML = "";
   currentCityEl.innerHTML = "";
 
+  //checks to make sure duplicates aren't pushed into searchedCities array before saving them to local storage
   if (!searchedCities.find((city) => city.toLowerCase() === cityHistory.toLowerCase()) && cityHistory !== "") {
     searchedCities.push(cityHistory);
     localStorage.setItem("cities", JSON.stringify(searchedCities));
@@ -67,7 +65,6 @@ function search(cityChoice) {
 
   fetch(requestUrl)
     .then(function (response) {
-      // console.log(response);
       return response.json();
     })
     .then(function (data) {

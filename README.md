@@ -6,17 +6,15 @@ https://williamgeorgethomas.github.io/weather-dashboard/
 
 # Purpose
 
-XXXXXXXXXXXXXXXXXXXXXXXX
-This application was created to make a multiple choice quiz.  Users have only 30 seconds to take the quiz and each incorrect answer reduces the time by 5 seconds.  After completing the quiz, users can enter their name to record their score.  The top 5 scores are displayed when the user clicks the "VIEW HIGH SCORES" button.
+This application was created to display the current weather and 5 day forecast for any city the user chooses.  There is a search bar for user input and each user search is saved to local storage.  Then the most recent 5 searches are displayed on buttons below the search bar.  When a button is clicked, the search is performed again for that city.
 
 # My Experience
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-Building this application from scartch presented many challenges.  It required extensive use of JavaScript, a language I am still in the early stages of learning.  It took extensive testing, revisions, and help to complete the application.
+This was the most challenging project yet.  It required signficant use of JavaScript and my first time using an API.  Navigating the API data as well as local storage and event listeners was difficult.  Finally, I used TailWind CSS to style the application.  It was my first time using a CSS framework and it was fun and easy to use after much trial and error.
 
 # Screenshot
 
-![screenshot of weather dashboard](XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX)
+![screenshot of weather dashboard](./_C__Users_Will_code_weather-dashboard_index.html.png)
 
 # Credits
 
