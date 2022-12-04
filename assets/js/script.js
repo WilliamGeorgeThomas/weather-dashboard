@@ -15,7 +15,7 @@ let cityCard = document.querySelector("#cityCard");
 //functions
 
 function init() {
-  //grabs last search results from local storage and put on left side of page
+  //takes last 5 search results from local storage creates a button for each
 
   if (searchedCities.length > 0) {
     let maximumLenght = searchedCities.length >= 5 ? 5 : searchedCities.length;
@@ -48,6 +48,7 @@ let buttonClickHandler = function (event) {
 };
 
 function search(cityChoice) {
+  
   let city = inputEl.value || cityChoice;
   let requestUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=6c722ab2da2f45aa2671601003f6488c&units=imperial`;
   let cityHistory = inputEl.value.trim();
